@@ -12,18 +12,32 @@
 </head>
 <body class="container">
 
-    <form action="/reg" method="POST">
+
+    
+     @extends('template.layout')
+
+     @section('content')
+
+
+    <form action="/reg" method="POST" style="height: 660px">
         @csrf
-        <div class="row mt-5">
+        <div class="row mt-5" >
         <div class="mb-3 col-md-4">
           <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" class="form-control" name="username" aria-describedby="emailHelp">
+          <input type="text" class="form-control" name="username" >
           <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          @error('username')
+         <div class="alert alert-danger">{{ $message }}</div>
+       @enderror
         </div>
         <div class="mb-3 col-md-4">
           <label for="exampleInputPassword1" class="form-label">Password</label>
           <input type="password" name="userpwd" class="form-control" id="exampleInputPassword1">
+          @error('userpwd')
+          <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
         </div>
+       
         <div class="mb-3 form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Check me out</label>
@@ -31,6 +45,8 @@
         <button type="submit" name="submitbtn" value="register" class="btn btn-primary col-md-2">Submit</button>
     </div>
       </form>
+
+      @endsection
     
 </body>
 </html>

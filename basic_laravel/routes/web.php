@@ -22,6 +22,8 @@ Route::get('/', function () {
 Route::get('/demo', function () {
     return view('home');
 });
-
+Route::get('/home', function () {
+    return view('template/layout');
+});
 Route::post('/reg' , [EmpController::class ,'showdata'] );
 
