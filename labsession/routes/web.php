@@ -29,6 +29,8 @@ Route::get('/index', function () {
     return view('home');
 });
 
+Route::post('/userans' , [PoolController::class ,'Answer'] );
+
 Route::get('/user' , [PoolController::class ,'user'] );
 
 Route::get('/activepool/{p_id}' , [PoolController::class ,'active'] );

@@ -65,8 +65,14 @@ class PoolController extends Controller
     {
         
 
-        $POOL = DB::table('pool')->get();
+        $POOL = DB::table('pool')->where(['status'=> 1])->get();
 
         return view('Usersite', ['pools' =>  $POOL]);
+    }
+    public function Answer(Request $request)
+    {
+        $answer = $request->get('ans');
+
+        return $answer;
     }
 }

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>User Site</title>
 </head>
 <body class="container">
@@ -12,19 +14,42 @@
 
         <h1 class="text-center">Welcome to user page</h1>
 
-        <div class="row col-md-12">
-          
+        
+          <table class="mt-3">
+              <form action="/userans" method="post">
+                @csrf
             @foreach($pools as $pool)
-               <div class="col-md-10"><h2>{{$pool->Question}}</h2></div>
-               <div class="row col-md-12 mt-1">
-                <p class="col-md-4">{{$pool->opt1}}</p>
-                <input class="col-md-2" type="radio" name="ans"/>
-              </div> 
-               <div class="row col-md-2">{{$pool->opt2}}</div>
-               <div class="row col-md-2">{{$pool->opt3}}</div>
-               <div class="row col-md-2">{{$pool->opt4}}</div>
+                <tr>
+                    <td><h1>{{$pool->Question}}</h1></td>
+                </tr>
+                <tr class="mt-3">
+                    <td class="col-3"><p>{{$pool->opt1}}</p></td>
+                    <td><input type="radio" value="{{$pool->opt1}}" name="ans" /></td>
+                </tr>
+                <tr>
+                    <td><p>{{$pool->opt2}}</p></td>
+                    <td><input type="radio" value="{{$pool->opt2}}" name="ans" /></td>
+                </tr>
+                <tr>
+                    <td><p>{{$pool->opt3}}</p></td>
+                    <td><input type="radio" value="{{$pool->opt3}}" name="ans" /></td>
+                </tr>
+                <tr>
+                    <td><p>{{$pool->opt4}}</p></td>
+                    <td><input type="radio" value="{{$pool->opt4}}" name="ans" /></td>
+                </tr>
+               
+                <tr>
+                    <td><input  class=" form-control btn-info" type="submit"/></td>
+                </tr>
+               
+            </form> 
             @endforeach
-        </div>
+
+            
+         
+          </table>
+        
 
        </div>
     
