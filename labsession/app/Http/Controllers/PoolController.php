@@ -72,7 +72,49 @@ class PoolController extends Controller
     public function Answer(Request $request)
     {
         $answer = $request->get('ans');
+        $id = $request->get('poolid');
 
-        return $answer;
+        $cnt = DB::table('pool_ans')->where(['answer'=> $answer ])->get('cn')->count();
+
+        if($cnt == 0)
+        {
+            $cnt ==1;
+        }
+        else
+        {
+            $cnt = $cnt +1;
+        }
+       
+        DB::table('pool_ans')->insert(
+            ['pool_id' => $id, 'answer' =>  $answer , 'cn' =>  $cnt]
+        );
+
+        return "inserted";
+    }
+
+    public function poolanswer($id)
+    {
+        $POOL = DB::table('pool')->where(['id'=> $id])->get();
+
+        $total = DB::table('pool_ans')->where(['pool_id'=> $id])->get()->count(); 
+
+        $opt1 = DB::table('pool_ans')->where(['pool_id'=> $id , 'answer' =>1])->get('cn')->max('cn'); 
+        $opt2 = DB::table('pool_ans')->where(['pool_id'=> $id , 'answer' =>2])->get('cn')->max('cn'); 
+        $opt3 = DB::table('pool_ans')->where(['pool_id'=> $id , 'answer' =>3])->get('cn')->max('cn'); 
+        $opt4 = DB::table('pool_ans')->where(['pool_id'=> $id , 'answer' =>4])->get('cn')->max('cn'); 
+        
+        $per1 = $opt1 *100 / $total;
+        $per2 = $opt2 *100 / $total;
+        $per3 = $opt3 *100 / $total;
+        $per4 = $opt4 *100 / $total;
+
+        
+        
+
+         return view('result', compact("per1", "per2", "per3","per4","POOL") );
+
+           
+        
+        
     }
 }

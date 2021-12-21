@@ -33,6 +33,8 @@ Route::post('/userans' , [PoolController::class ,'Answer'] );
 
 Route::get('/user' , [PoolController::class ,'user'] );
 
+Route::get('/viewans/{id}' , [PoolController::class ,'poolanswer'] );
+
 Route::get('/activepool/{p_id}' , [PoolController::class ,'active'] );
 
 Route::get('/view_pool' , [PoolController::class ,'displaypool'] );

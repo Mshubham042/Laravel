@@ -22,26 +22,31 @@
                 <tr>
                     <td><h1>{{$pool->Question}}</h1></td>
                 </tr>
+                <tr>
+                    <td><input type="hidden" value="{{$pool->id}}" name="poolid" /></td>
+                </tr>
                 <tr class="mt-3">
                     <td class="col-3"><p>{{$pool->opt1}}</p></td>
-                    <td><input type="radio" value="{{$pool->opt1}}" name="ans" /></td>
+                    <td><input type="radio" value="1" name="ans" /></td>
                 </tr>
                 <tr>
-                    <td><p>{{$pool->opt2}}</p></td>
-                    <td><input type="radio" value="{{$pool->opt2}}" name="ans" /></td>
+                    <td><p>{{$pool->opt2}} </p></td>
+                    <td><input type="radio" value="2" name="ans" /></td>
                 </tr>
                 <tr>
                     <td><p>{{$pool->opt3}}</p></td>
-                    <td><input type="radio" value="{{$pool->opt3}}" name="ans" /></td>
+                    <td><input type="radio" value="3" name="ans" /></td>
                 </tr>
                 <tr>
                     <td><p>{{$pool->opt4}}</p></td>
-                    <td><input type="radio" value="{{$pool->opt4}}" name="ans" /></td>
+                    <td><input type="radio" value="4" name="ans" /></td>
                 </tr>
                
                 <tr>
                     <td><input  class=" form-control btn-info" type="submit"/></td>
+                   <td class="btn btn-info mr-2"><a href="/viewans/{{$pool->id}}">View Result</a></td>
                 </tr>
+                
                
             </form> 
             @endforeach
