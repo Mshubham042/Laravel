@@ -18,7 +18,7 @@
 
      @section('content')
 
-     <form method="post" action="/register"  class="row col-8 g-3 mt-3">
+     <form method="post" action="/register"  class="row col-6 g-4 mt-4">
       @csrf
       <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Name</label>
@@ -32,8 +32,38 @@
         <label for="inputAddress" class="form-label">Password</label>
         <input type="password" name="password" class="form-control"  placeholder="">
       </div>
-      
-      
+      <div class="col-6">
+      <label for="inputAddress" class="form-label">Gender</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1" value="male">
+        <label class="form-check-label" for="flexRadioDefault1">
+        Male
+        </label>
+      </div>
+      <div class="form-check">
+       
+        <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault2" value="female" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+          Female
+        </label>
+      </div>
+      </div>
+      <div class="col-6">
+        <label for="inputAddress" class="form-label">Stream</label>
+        
+        <select name="stream" class="form-control" >
+          @php
+            $arr  = array("BCA","MCA","MCOM","BBA","MBA");
+          @endphp
+  
+          @foreach($arr as $value)
+          <option class="form-control" value={{$value}}>{{$value}}</option>
+          @endforeach
+        
+         
+          
+        </select>
+      </div>
       <div class="col-12">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>

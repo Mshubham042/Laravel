@@ -33,11 +33,15 @@ class EmpController extends Controller
       $name = $request->get("name");
       $username = $request->get("username");
       $password = $request->get("password");
+      $gender = $request->get("gender");
+      $stream = $request->get("stream");
 
       DB::table('test')->insert([
          'Name' => $name,
          'Username' => $username,
-         'Password' => $password
+         'Password' => $password,
+         'Gender'=> $gender,
+         'Stream'=>$stream
      ]);
      return redirect("user_Data");
       
