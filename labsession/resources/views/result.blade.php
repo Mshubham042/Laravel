@@ -14,7 +14,7 @@
     <div class="mt-5">
 
         @foreach($POOL as $pl)
-        <h1>{{$pl->Question}}</h1> 
+            <h1>{{$pl->Question}}</h1> 
         
         @endforeach
         
