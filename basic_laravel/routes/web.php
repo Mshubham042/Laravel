@@ -25,5 +25,8 @@ Route::get('/demo', function () {
 Route::get('/home', function () {
     return view('template/layout');
 });
-Route::post('/reg' , [EmpController::class ,'showdata'] );
+Route::post('/register' , [EmpController::class ,'insertdata']);
+Route::get('/user_Data' , [EmpController::class ,'showdata'] );
+Route::get('/delete_user/{id}' , [EmpController::class ,'deleteuser'] );
+Route::get('/edit_page/{id}' , [EmpController::class ,'editfun'] );
 

@@ -12,35 +12,35 @@
 
     @section('content')
 
-    <table>
+    <table class="table table-striped">
         <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Email</th>
-            <th>Phone</th>
+            <th>Password</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>View</th>
         </tr>
-        {{-- @foreach($emprecords as $emp) --}}
-            
-       
+
+        @foreach($emprecords as $emp)
+           
         <tr>
-            <td> <h1>{{$emprecords }}</h1></td>
-            {{-- <td> <h1>{{$emp}}</h1></td>
-            <td> <h1>{{$emp}}</h1></td>
-            <td> <h1>{{$emp}}</h1></td> --}}
+            <td> <p>{{$emp->id}}</p></td>
+            <td> <p>{{$emp->Name}}</p></td>
+            <td> <p>{{$emp->Username}}</p></td>
+            <td> <p>{{$emp->Password}}</p></td>
+            <td> <a class="btn btn-success" href="edit_page/{{$emp->id}}">Edit</a></td>
+            <td> <a class="btn btn-danger" href="delete_user/{{$emp->id}}">Delete</a></td>
+            <td> <a class="btn btn-info" href="edit_page/{{$emp->id}}">View</a></td>
         </tr>
-        {{-- @endforeach --}}
+        @endforeach
+      
         </table>
 
-    
-
-        {{-- @foreach($emprecords as $emprecord)
-
-        <h1>{{emprecord}}</h1>
-            
-        @endforeach --}}
-       
-
-   
+        <div class="addbtn col-2">
+            <a class="btn btn-info" href="/demo">Add User</a>
+        </div>
 
     @endsection
 
